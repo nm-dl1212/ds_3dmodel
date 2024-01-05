@@ -1,7 +1,10 @@
 FROM mcr.microsoft.com/devcontainers/python:0-3.11
 
 # Install the apt package
-#RUN apt-get update && apt-get install nano
+RUN apt-get update && apt-get install -y \
+    nano \
+    emacs \
+    tmux 
 
 # Install pip package
 RUN pip install -U pip && pip install --no-cache-dir \
@@ -9,12 +12,5 @@ RUN pip install -U pip && pip install --no-cache-dir \
     pandas \
     scipy \
     scikit-learn \
-    torch \
-    torchvision \
+    seaborn \
     plotly
-
-ENV TORCH '2.0.1+cu117'
-RUN pip install -q torch-scatter -f https://data.pyg.org/whl/torch-${TORCH}.html && \
-    pip install -q torch-sparse -f https://data.pyg.org/whl/torch-${TORCH}.html && \
-    pip install -q torch-cluster -f https://data.pyg.org/whl/torch-${TORCH}.html && \
-    pip install -q git+https://github.com/pyg-team/pytorch_geometric.git
