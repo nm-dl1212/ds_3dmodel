@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install pip package
 RUN pip install -U pip && pip install --no-cache-dir \
+    ipykernel \
     numpy \
     pandas \
     scipy \
