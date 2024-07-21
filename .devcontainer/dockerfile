@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/python:0-3.11
+FROM mcr.microsoft.com/devcontainers/python:3.10
 
 # Install the apt package
 RUN apt-get update && apt-get install -y \
@@ -8,10 +8,9 @@ RUN apt-get update && apt-get install -y \
 
 # Install pip package
 RUN pip install -U pip && pip install --no-cache-dir \
-    ipykernel \
+    ipykernel \ 
     numpy \
     pandas \
     scipy \
     scikit-learn \
-    seaborn \
-    plotly
+    seaborn 
